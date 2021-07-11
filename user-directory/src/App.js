@@ -1,11 +1,10 @@
 import React from 'react';
-import "/App.css";
+import EmployeeCard from './components/EmployeeCard';
+import Wrapper from './components/Wrapper';
+//import Col from './components/Col';
+import './App.css';
 
 
-export default function App() {
-  return (
-    <div>
-      <h1>hello world</h1>
-    </div>
-  );
+    );
+  }
 }
