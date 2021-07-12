@@ -1,5 +1,6 @@
 {
   "name": "user-directory",
+  "homepage": "https://thereal-baitjet.github.io/user-directory",
   "version": "0.1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -12,6 +13,8 @@
     "webpack": "^4.44.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
