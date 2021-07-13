@@ -8,6 +8,7 @@
   * [Credits](#credits)
   ### Installation:
   
+  click on this link --> https://thereal-baitjet.github.io/react-employee-directory/#/
   ### License:
   This project is licensed under:
   MIT
