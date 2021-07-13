@@ -1,6 +1,6 @@
 {
   "name": "user-directory",
-  "homepage": "https://thereal-baitjet.github.io/user-directory",
+  "homepage": "https://thereal-baitjet.github.io/employee-directory",
   "version": "0.1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -36,5 +36,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {
+      "gh-pages": "^3.2.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

@@ -8,7 +8,7 @@
   * [Credits](#credits)
   ### Installation:
   
-  Click this link for deployed app -> https://thereal-baitjet.github.io/react-userdirectory
+  Click this link for deployed app -> https://thereal-baitjet.github.io/react-employee-directory/
   
   ### License:
   This project is licensed under:

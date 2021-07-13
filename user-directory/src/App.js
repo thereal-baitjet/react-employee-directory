@@ -1,13 +1,14 @@
-import React from 'react';
-import EmployeeCard from './components/EmployeeCard';
-import SearchForm from './components/SeachForm';
-import Wrapper from './components/Wrapper';
-import Col from './components/Col';
-import API from './utils/API';
-import './App.css';
+import React from "react";
+import EmployeeCard from "./components/EmployeeCard";
+import SearchForm from "./components/SeachForm";
+import Wrapper from "./components/Wrapper";
+import Col from "./components/Col";
+import API from "./utils/API";
+import "./App.css";
+import { HashRouter } from "react-router-dom";
 
 class App extends React.Component {
-  state = { employees: [], search: '' };
+  state = { employees: [], search: "" };
 
   componentDidMount() {
     API.search()
@@ -33,10 +34,10 @@ class App extends React.Component {
   }
 
   searchEmployee = (filter) => {
-    console.log('Search', filter);
+    console.log("Search", filter);
     const filteredList = this.state.employees.filter((employee) => {
       // merge data together, then check to see if employee exists
-      let values = Object.values(employee).join('').toLowerCase();
+      let values = Object.values(employee).join("").toLowerCase();
       return values.indexOf(filter.toLowerCase()) !== -1;
     });
     // Update the employee list with the filtered value
@@ -49,59 +50,61 @@ class App extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    console.log('Handle ', this.state.search);
+    console.log("Handle ", this.state.search);
   };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log('Button Clicked', this.state.search, e);
+    console.log("Button Clicked", this.state.search, e);
     this.searchEmployee(this.state.search);
   };
 
   render() {
     return (
-      <Wrapper>
-        <div className="container">
-          <div className="row">
-            <Col size="md-4">
-              <h2>Employee Directory</h2>
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
-            </Col>
-          </div>
+      <HashRouter>
+        <Wrapper>
+          <div className="container">
+            <div className="row">
+              <Col size="md-4">
+                <h2>Employee Directory</h2>
+                <SearchForm
+                  value={this.state.search}
+                  handleInputChange={this.handleInputChange}
+                  handleFormSubmit={this.handleFormSubmit}
+                />
+              </Col>
+            </div>
 
-          <div className="row">
-            <Col size="md-12">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>Photo</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>City</th>
-                  </tr>
-                </thead>
-                {[...this.state.employees].map((item) => (
-                  <EmployeeCard
-                    picture={item.picture}
-                    firstName={item.firstName}
-                    lastName={item.lastName}
-                    email={item.email}
-                    phone={item.phone}
-                    city={item.city}
-                    key={item.key}
-                  />
-                ))}
-              </table>
-            </Col>
+            <div className="row">
+              <Col size="md-12">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Photo</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>City</th>
+                    </tr>
+                  </thead>
+                  {[...this.state.employees].map((item) => (
+                    <EmployeeCard
+                      picture={item.picture}
+                      firstName={item.firstName}
+                      lastName={item.lastName}
+                      email={item.email}
+                      phone={item.phone}
+                      city={item.city}
+                      key={item.key}
+                    />
+                  ))}
+                </table>
+              </Col>
+            </div>
           </div>
-        </div>
-      </Wrapper>
+        </Wrapper>
+      </HashRouter>
     );
   }
 }
